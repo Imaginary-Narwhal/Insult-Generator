@@ -1,0 +1,36 @@
+﻿<ac:AdonisWindow x:Class="Insult_Generator.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Insult_Generator.Views"
+        xmlns:ac="clr-namespace:AdonisUI.Controls;assembly=AdonisUI"
+        xmlns:acex="clr-namespace:AdonisUI.Extensions;assembly=AdonisUI"
+        xmlns:viewmodel="clr-namespace:Insult_Generator.ViewModels" 
+        mc:Ignorable="d" ResizeMode="CanMinimize"
+        Title="Insult Generator" Height="150" Width="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBox Text="{Binding FirstInsult}" Height="40" IsReadOnly="True" FontSize="20" Margin="10,0,10,0" TextAlignment="Center"/>
+        <TextBox Grid.Column="1" Text="{Binding SecondInsult}" Height="40" IsReadOnly="True" FontSize="20" Margin="10,0,10,0" TextAlignment="Center"/>
+        <TextBox Grid.Column="2" Text="{Binding ThirdInsult}" Height="40" IsReadOnly="True" FontSize="20" Margin="10,0,10,0" TextAlignment="Center"/>
+
+        <Button Content="{Binding ButtonText}" 
+                IsEnabled="{Binding IsWaiting}"
+                Grid.Column="2" 
+                Grid.Row="1" 
+                Height="40" 
+                FontSize="20" 
+                VerticalAlignment="Bottom" 
+                Margin="10,0,10,10" 
+                Command="{Binding InsultSomeoneCommand}"/>
+    </Grid>
+</ac:AdonisWindow>
